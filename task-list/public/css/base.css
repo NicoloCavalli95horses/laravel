@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css?family=Signika+Negative&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+:root {
+  /* colors */
+  --primary:      rgb(46, 128, 158);
+  --secondary:    rgb(163, 201, 215);
+
+  --background:   rgb(33, 33, 33);
+  --background-09: rgba(33, 33, 33, 0.9);
+  --background-08: rgba(33, 33, 33, 0.8);
+  --background-07: rgba(33, 33, 33, 0.7);
+  --background-06: rgba(33, 33, 33, 0.6);
+  --background-05: rgba(33, 33, 33, 0.5);
+  --background-04: rgba(33, 33, 33, 0.4);
+  --background-03: rgba(33, 33, 33, 0.3);
+  --background-02: rgba(33, 33, 33, 0.2);
+  --background-01: rgba(33, 33, 33, 0.1);
+
+  --backdrop:   rgba(255, 235, 210, 0.1);
+
+  --white:      rgb(240, 240, 255); 
+  --black:      rgb(17, 17, 17);
+
+  --font-light: var(--white);
+  --font-dark:  var(--black);
+
+  --error:   rgb(209, 44, 44);
+  --warning: rgb(240, 225, 61);
+
+  --radius-xl: 2.6rem;
+  --radius-l:  1.8rem;
+  --radius-m:  1.2rem;
+  --radius-s:  0.6rem;
+
+  --transition-slow:   800ms;
+  --transition-medium: 400ms;
+  --transition-fast:   200ms;
+
+  --nav-height-desktop: 10rem;
+  --nav-height-mobile: 7rem;
+
+  --box-shadow:        var(--black) 0px 2rem 3rem -1rem;
+  --box-shadow-nav:    var(--black) 0px 0rem 3rem -1rem;
+  --box-shadow-footer: var(--black) 0px 0rem 3rem -1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); 
+}
+
+/* Root font-size: 1rem = 10px */
+html {
+  background-color: var(--background);
+  font-size: 10px;
+}
+
+body {
+  padding: 12px;
+}
+
+/* Font */
+h1, h2, h3, h5, p, ul, li, a, span, input, textarea, label, summary, details {
+  font-family: 'Quicksand', monospace;
+}
+
+h1, h3, h4 {
+  font-family: 'Signika Negative', sans-serif;
+}
+
+/* Color */
+h2, h3, h4, p, ul, li, a, span, label, summary, details {
+  color: var(--font-light);
+}
+
+h5, h6 {
+  color: var(--font-light);
+}
+
+h6 {
+  font-family: monospace;
+}
+
+/* Size */
+h1 {
+  color: var(--secondary);
+  font-size: clamp(3rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: 2.6rem;
+}
+
+h3 {
+  color: var(--secondary);
+  font-size: clamp(2.5rem, 4vw, 3rem);
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+p, span, ul, li, a, label {
+  font-size: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Code for Firefox */
+::-moz-selection { 
+  color: var(--font-light);
+  background: var(--primary);
+}
+
+::selection {
+  color: var(--font-light);
+  background: var(--primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--font-dark);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--background-09);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--background-05);
+}
+
+
+.float-r {
+  float: right;
+}
+
+.float-l {
+  float: left;
+}
+
+.top-left-corner {
+  position: absolute;
+  top: 2.2rem;
+  left: 2.2rem;
+}
+
+.top-right-corner {
+  position: absolute;
+  top: 2.2rem;
+  right: 2.2rem;
+}
+
+.bottom-right-corner {
+  position: absolute;
+  bottom: 2.2rem;
+  right: 2.2rem;
+}
+
+.bottom-left-corner {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 2.2rem;
+}
+
+.abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.abs-center-bottom {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.abs-center-top {
+  position: absolute;
+  top: 2.2rem;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.abs-center-left {
+  position: absolute;
+  top: 50%;
+  left: 2.2rem;
+}
+
+.abs-center-right {
+  position: absolute;
+  top: 50%;
+  right: 2.2rem;
+}
+
+.fix-bottom-right {
+  position: fixed;
+  bottom: 2.2rem;
+  right: 2.2rem;
+}
+
+.fix-bottom-left {
+  position: fixed;
+  bottom: 2.2rem;
+  left: 2.2rem;
+}
+
+.full-flex {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center.start {
+  justify-content: flex-start;
+}
+.flex-center.end {
+  justify-content: flex-end;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-start {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.flex-column.left {
+  align-items: flex-start;
+}
+.flex-column.right {
+  align-items: flex-end;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.top-6 {
+  margin-top: 0.6rem;
+}
+
+.top-12 {
+  margin-top: 1.2rem;
+}
+
+.top-24 {
+  margin-top: 2.4rem;
+}
+
+.top-32 {
+  margin-top: 3.2rem;
+}
+
+.top-48 {
+  margin-top: 4.8rem;
+}
+
+.bottom-6 {
+  margin-bottom: 0.6rem;
+}
+
+.bottom-12 {
+  margin-bottom: 1.2rem;
+}
+
+.bottom-24 {
+  margin-bottom: 2.4rem;
+}
+
+.bottom-36 {
+  margin-bottom: 3.6rem;
+}
+
+.bottom-48 {
+  margin-bottom: 4.8rem;
+}
+
+.r-6 {
+  margin-right: 0.6rem;
+}
+
+.r-12 {
+  margin-right: 1.2rem;
+}
+
+.r-24 {
+  margin-right: 2.4rem;
+}
+
+.l-6 {
+  margin-left: 0.6rem;
+}
+
+.l-12 {
+  margin-left: 1.2rem;
+}
+
+.l-24 {
+  margin-left: 2.4rem;
+}
+
+.m-12 {
+  margin: 1.2rem;
+}
+
+.m-22 {
+  margin: 2.2rem;
+}
+
+.c-margin {
+  margin: 0 auto;
+}
+
+.separator {
+  width: 100%;
+  height: 88px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.w-33 {
+  width: 33%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100vh;
+}
+
+.relative {
+  position: relative;
+}
+
+.display-none {
+  display: none;
+}
+
+.unvisible {
+  visibility: hidden;
+}
+
+.notouch {
+  pointer-events: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+code {
+  padding: 0.6rem 0.8rem;
+  border-radius: 2.2rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0.3rem;
+}
+.spacing {
+  letter-spacing: 0.2rem;
+}
+
+.hide {
+  display: none;
+}
+
+/* Transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-out;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* if backdrop support: very transparent and blurred */
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .backdrop {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+  }
+}
+
+.c-text {
+  text-align: center;
+}
+.l-text {
+  text-align: left;
+}
+.r-text {
+  text-align: right;
+}
+
+/* display */
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.abs {
+  display: absolute;
+}
+
+.fixed {
+  display: fixed;
+}
+
+/* animations */
+.fadein {
+  animation: fadein 500ms linear;
+}
+
+.fadeout {
+  animation: fadein 500ms linear reverse;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+svg {
+  color: var(--font-light);
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.svg-18 {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+
+button, .add-task {
+  background-color: var(--primary);
+  padding: 8px 12px;
+  color: var(--white);
+  width: max-content;
+  cursor: pointer;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+}
+
+.add-task {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+}
+
+.todo-item {
+  width: calc(100% - 24px);
+  border-bottom: 1px solid lightblue;
+  padding: 12px;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.pagination span, .pagination a {
+  text-transform: uppercase;
+}
+.pagination .hidden {
+  margin-left: 22px;
+  display: flex;
+  height: 20px;
+}
+
+input, textarea {
+  padding: 10px;
+  resize: none;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+}
