@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+// Serve public static assest built by Vue.js 
+// Route::get('/{any}', function () {
+//   return file_get_contents(public_path('index.html'));
+// })->where('any', '.*');
+
 Route::get('/', function () {
   return redirect()->route('tasks.index');
 });
